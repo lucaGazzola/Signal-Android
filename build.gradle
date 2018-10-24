@@ -2,6 +2,7 @@ import java.security.MessageDigest
 
 buildscript {
     repositories {
+	google()
         maven {
             url "https://repo1.maven.org/maven2"
             jcenter()
@@ -10,9 +11,10 @@ buildscript {
             url 'https://maven.google.com/'
             name 'Google'
         }
+	jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath files('libs/gradle-witness.jar')
     }
 }
@@ -50,6 +52,7 @@ repositories {
     }
     jcenter()
     mavenLocal()
+    google()
     maven {
         url 'https://maven.google.com/'
         name 'Google'
