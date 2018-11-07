@@ -14,6 +14,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.CheckBoxPreference;
 import android.support.v7.preference.Preference;
+
+import org.thoughtcrime.securesms.ConfigurationActivity;
 import org.thoughtcrime.securesms.logging.Log;
 import android.widget.Toast;
 
@@ -39,6 +41,8 @@ public class AdvancedPreferenceFragment extends CorrectedPreferenceFragment {
 
   private static final String PUSH_MESSAGING_PREF   = "pref_toggle_push_messaging";
   private static final String SUBMIT_DEBUG_LOG_PREF = "pref_submit_debug_logs";
+  private static final String PRINT_CONFIGURATION = "pref_configuration";
+
 
   private static final int PICK_IDENTITY_CONTACT = 1;
 
@@ -51,6 +55,10 @@ public class AdvancedPreferenceFragment extends CorrectedPreferenceFragment {
     Preference submitDebugLog = this.findPreference(SUBMIT_DEBUG_LOG_PREF);
     submitDebugLog.setOnPreferenceClickListener(new SubmitDebugLogListener());
     submitDebugLog.setSummary(getVersion(getActivity()));
+
+    Preference printConfiguration = this.findPreference(PRINT_CONFIGURATION);
+    printConfiguration.setOnPreferenceClickListener(new PrintConfigurationListener());
+    printConfiguration.setSummary(getVersion(getActivity()));
   }
 
   @Override
@@ -147,6 +155,15 @@ public class AdvancedPreferenceFragment extends CorrectedPreferenceFragment {
     @Override
     public boolean onPreferenceClick(Preference preference) {
       final Intent intent = new Intent(getActivity(), LogSubmitActivity.class);
+      startActivity(intent);
+      return true;
+    }
+  }
+
+  private class PrintConfigurationListener implements Preference.OnPreferenceClickListener {
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+      final Intent intent = new Intent(getActivity(), ConfigurationActivity.class);
       startActivity(intent);
       return true;
     }
