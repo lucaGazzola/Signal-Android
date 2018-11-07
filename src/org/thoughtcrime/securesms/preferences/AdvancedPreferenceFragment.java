@@ -58,7 +58,7 @@ public class AdvancedPreferenceFragment extends CorrectedPreferenceFragment {
 
     Preference printConfiguration = this.findPreference(PRINT_CONFIGURATION);
     printConfiguration.setOnPreferenceClickListener(new PrintConfigurationListener());
-    printConfiguration.setSummary(getVersion(getActivity()));
+    // printConfiguration.setSummary(getVersion(getActivity()));
   }
 
   @Override
