@@ -17,4 +17,7 @@
     <Preference android:key="pref_configuration"
         android:title="@string/preferences__configuration"/>
 
+    <Preference android:key="pref_testing"
+        android:title="@string/preferences__testing"/>
+
 </PreferenceScreen>
